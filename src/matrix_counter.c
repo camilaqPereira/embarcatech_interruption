@@ -117,14 +117,18 @@ static void button_press_handler(uint gpio, uint32_t events);
 */
 void button_press_handler(uint gpio, uint32_t events) {
 
-    if(gpio == GPIO_BUTTON_A && absolute_time_diff_us(button_a_last_pressed_time, get_absolute_time()) > DEBOUNCE_TIME && mtx_counter < 9){
+    absolute_time_t current_time = get_absolute_time();
+
+    if(gpio == GPIO_BUTTON_A && absolute_time_diff_us(button_a_last_pressed_time, current_time) > DEBOUNCE_TIME && mtx_counter < 9){
         /* Routine for button A*/
+        button_a_last_pressed_time = current_time;
         mtx_counter++;
         mtx_display_number();
         
         
-    }else if (gpio == GPIO_BUTTON_B &&  absolute_time_diff_us(button_a_last_pressed_time, get_absolute_time()) > DEBOUNCE_TIME && mtx_counter > 0){
+    }else if (gpio == GPIO_BUTTON_B &&  absolute_time_diff_us(button_b_last_pressed_time, current_time) > DEBOUNCE_TIME && mtx_counter > 0){
         /* Routine for button B*/
+        button_b_last_pressed_time = current_time;
         mtx_counter--;
         mtx_display_number();
     }
