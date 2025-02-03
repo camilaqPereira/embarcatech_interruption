@@ -1,4 +1,4 @@
-<h1 align="center">  COntador em WS2812 controlado por pushbuttons (IRQ)</h1>
+<h1 align="center">  Contador em WS2812 controlado por pushbuttons (IRQ)</h1>
 
 ## [Sobre o projeto](https://drive.google.com/file/d/1Vok09JD78kTA6KN4OpiEUEzqGkNnXWbR/view?usp=sharing)
 
